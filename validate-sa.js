@@ -51,7 +51,7 @@ function mv_sa (arr) {
   }
 }
 
-/*
+
 async function choose (count) {
   const answer = await prompts({
     type: 'select',
@@ -65,13 +65,13 @@ async function choose (count) {
   })
   return answer.value
 }
-*/
 
-async function user_choose () {
+/*async function user_choose () {
   const response = await prompts({
     type: 'number',
     name: 'value',
-    message: `请输入选择（1/2/3）：
+    message: `检测到 ${count} 个无效的SA，是否将它们移动到 sa/invalid 目录下？\n 请输入选择（1/2)`,
+  message: `请输入选择（1/2/3）：
     1、Yes
     2、No
     `,
@@ -79,7 +79,7 @@ async function user_choose () {
   })
   const choices = ['', 'continue', 'restart']
   return choices[response.value]
-}
+}*/
 
 async function get_invalid_sa (arr, fid) {
   if (!fid) throw new Error('请指定要检测权限的目录ID')
