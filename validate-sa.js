@@ -51,6 +51,7 @@ function mv_sa (arr) {
   }
 }
 
+/*
 async function choose (count) {
   const answer = await prompts({
     type: 'select',
@@ -63,6 +64,21 @@ async function choose (count) {
     initial: 0
   })
   return answer.value
+}
+*/
+
+async function user_choose () {
+  const response = await prompts({
+    type: 'number',
+    name: 'value',
+    message: `请输入选择（1/2/3）：
+    1、Yes
+    2、No
+    `,
+    validate: value => [1, 2].includes(value) ? true : `必须输入 1/2`
+  })
+  const choices = ['', 'continue', 'restart']
+  return choices[response.value]
 }
 
 async function get_invalid_sa (arr, fid) {
